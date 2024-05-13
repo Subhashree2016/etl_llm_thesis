@@ -1,0 +1,4 @@
+5,postgres,10,6,c,False,True,-1,723,1,1663,English_United States.1252,English_United States.1252,,,,
+16388,adventureworks,10,6,c,False,True,-1,723,1,1663,English_United States.1252,English_United States.1252,,,,
+1,template1,10,6,c,True,True,-1,723,1,1663,English_United States.1252,English_United States.1252,,,,"{=c/postgres,postgres=CTc/postgres}"
+4,template0,10,6,c,True,False,-1,723,1,1663,English_United States.1252,English_United States.1252,,,,"{=c/postgres,postgres=CTc/postgres}"

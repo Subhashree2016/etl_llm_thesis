@@ -1,0 +1,14 @@
+99,pg_toast,10,
+11,pg_catalog,10,"{postgres=UC/postgres,=U/postgres}"
+2200,public,6171,"{pg_database_owner=UC/pg_database_owner,=U/pg_database_owner}"
+14697,information_schema,10,"{postgres=UC/postgres,=U/postgres}"
+16433,person,10,
+16530,humanresources,10,
+16592,production,10,
+17036,purchasing,10,
+17102,sales,10,
+18355,pe,10,
+18408,hr,10,
+18433,pr,10,
+18535,pu,10,
+18556,sa,10,
