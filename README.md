@@ -4,4 +4,6 @@ Application of Large Language Models for Data Extraction, Transformation, and Lo
 
 
 # Repository Structure
-# datasets
+# Training Data Preparation Flow
+## Dataset
+In evaluating Language Learning Models (LLMs), AdventureWorks database is used. This repository outlines the process for preparing training data from the AdventureWorks database. The workflow involves retrieving schemas from all tables in the correct order, extracting data without headers, creating schema JSON files, generating a training dataset formatted as "prompt" and "response," and shuffling the data for model training. 
