@@ -5,17 +5,17 @@ Application of Large Language Models for Data Extraction, Transformation, and Lo
 
 # Repository Structure
 
-etl-llm                           <- root directory of the repository
-├── TrainingData                  <- Contains data used for training models
-│   └── ...                       <- (Add specific files and descriptions here)
-├── schema                        <- Contains schema definitions and related files
-│   └── ...                       <- (Add specific files and descriptions here)
-├── evaluations                   <- Contains evaluation results and scripts
-│   └── ...                       <- (Add specific files and descriptions here)
-├── metrics                       <- Contains metrics results and scripts
-│   └── ...                       <- (Add specific files and descriptions here)
-├── notebooks                     <- Contains Jupyter notebooks for experimentation and analysis
-│   └── ...                       <- (Add specific files and descriptions here)
+etl-llm <- root directory of the repository
+├── TrainingData <- Contains data used for training models
+│ └── ... <- (Add specific files and descriptions here)
+├── schema <- Contains schema definitions and related files
+│ └── ... <- (Add specific files and descriptions here)
+├── evaluations <- Contains evaluation results and scripts
+│ └── ... <- (Add specific files and descriptions here)
+├── metrics <- Contains metrics results and scripts
+│ └── ... <- (Add specific files and descriptions here)
+├── notebooks <- Contains Jupyter notebooks for experimentation and analysis
+│ └── ... <- (Add specific files and descriptions here)
 
 # Training Data Preparation Flow
 ## Dataset
