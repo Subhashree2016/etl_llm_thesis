@@ -36,7 +36,7 @@ etl-llm (root directory of the repository)
         └──true_pred_labels_medium.json: True and predicted labels of the BERT model on a medium dataset.
         └──true_pred_labels_large.json: True and predicted labels of the BERT model on a large dataset.
 ├── metrics (Contains notebook to generate model's performance in detail and for performing further analyses such as confusion matrix computation, performance analysis, and more)
-│   └── metrics.ipynb (Add specific files and descriptions here)
+│   └── metrics.ipynb (Code and results from model evaluations)
 └── notebooks (Contains Jupyter notebooks for experimentation and analysis)
     └── Data Processing.ipynb (Retreives the schema from adventureworks database,data amd preprocesses the data to generate the training dataset)
     └── Bert_model_schema_training.ipynb (Bert base model trained on AdventureWorks schema)
