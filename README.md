@@ -7,11 +7,11 @@ Application of Large Language Models for Data Extraction, Transformation, and Lo
 ```
 etl-llm (root directory of the repository)
 ├── TrainingData (Contains data used for training models)
-│  .├── schema_adventureadw/
-    ├── Adventuredataset_WH/
-    └── adventureworks_tableschema_sequence.csv
+│  .
 ├── schema (Contains schema definitions and related files)
-│   └── ... (Add specific files and descriptions here)
+│   ├── schema_adventureadw/- This directory contains the schema definitions and json files for the AdventureWorks tables.
+    ├── Adventuredataset_WH/ - This directory includes the dataset files for the AdventureWorks base tables without header information.
+    └── adventureworks_tableschema_sequence.csv - Schema extracted from AdventureWorks database for all base tables-
 ├── evaluations (Contains evaluation results and scripts)
 │   └── ... (Add specific files and descriptions here)
 ├── metrics (Contains metrics results and scripts)
