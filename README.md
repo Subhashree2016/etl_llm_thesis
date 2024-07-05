@@ -7,7 +7,7 @@ Application of Large Language Models for Data Extraction, Transformation, and Lo
 2. [Repository Structure](#Repository-Structure)
 3. [Data](#Dataset)
 4. [Usage Instructions](#Usage-Instructions) 
-7. [Acknowledgements](#acknowledgements)
+7. [Acknowledgements](#acknowledgement)
 
 
 # Overview
