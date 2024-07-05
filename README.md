@@ -34,11 +34,55 @@ etl-llm (root directory of the repository)
 # Training Data Preparation Flow
 ## Dataset
 In evaluating Language Learning Models (LLMs), AdventureWorks database is used. This repository outlines the process for preparing training data from the AdventureWorks database. The workflow involves retrieving schemas from all tables in the correct order, extracting data without headers, creating schema JSON files, generating a training dataset formatted as "prompt" and "response," and shuffling the data for model training. 
+## Setting Up PostgreSQL for Data processing
+
+For data processing, a local installation of PostgreSQL is required. Follow the steps below to set up PostgreSQL and connect to it from your local environment.
+
+1. **Install PostgreSQL**:
+   - Download and install PostgreSQL from the [official website](https://www.postgresql.org/download/).
+   - During the installation, set a password for the PostgreSQL superuser (postgres).
+
+2. **Set Up a Database**:
+   - Open the PostgreSQL shell (psql) and create a new database:
+     ```sql
+     CREATE DATABASE your_database_name;
+     ```
+
+3. **Install psycopg2**:
+   - Ensure `psycopg2` is installed in your Python environment:
+     ```sh
+     pip install psycopg2
+     ```
+
+4. **Connect to PostgreSQL**:
+   - Use the following code snippet to connect to your PostgreSQL database in your Python scripts:
+     ```python
+     import psycopg2
+
+     # Establish a connection to the PostgreSQL database
+     connection = psycopg2.connect(
+         host="localhost",
+         database="your_database_name",
+         user="your_postgres_user",
+         password="your_postgres_password"
+     )
+
+     # Create a cursor object
+     cursor = connection.cursor()
+
+     # Execute queries
+     cursor.execute("SELECT * FROM your_table_name;")
+     results = cursor.fetchall()
+
+     # Close the connection
+     cursor.close()
+     connection.close()
+     ```
 
 ## Usage Instructions
 
 1. **Set Up**:
-   - Ensure all required libraries are installed.
+   - Ensure all required libraries are installed. Install the required dependencies using:  ``` pip install -r requirements.txt ```
    - Place your datasets in the `TrainingData` directory.
 
 2. **Running Scripts**:
