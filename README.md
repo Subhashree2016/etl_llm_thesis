@@ -5,11 +5,12 @@ Application of Large Language Models for Data Extraction, Transformation, and Lo
 
 1. [Overview](#overview)
 2. [Installation](#installation)
-3. [Data](# Training Data Preparation Flow)
+3. [Data](#Training Data Preparation Flow)
 4. [Repository Structure](#Repository Structure)
 5. [How to Navigate the Repository](#how-to-navigate-the-repository)
 6. [Acknowledgements](#acknowledgements)
 
+# Overview
 # Repository Structure
 ```
 etl-llm (root directory of the repository)
