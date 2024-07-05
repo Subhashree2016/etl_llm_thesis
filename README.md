@@ -7,7 +7,9 @@ Application of Large Language Models for Data Extraction, Transformation, and Lo
 ```
 etl-llm (root directory of the repository)
 ├── TrainingData (Contains data used for training models)
-│   └── ... (Add specific files and descriptions here)
+│  .├── schema_adventureadw/
+    ├── Adventuredataset_WH/
+    └── adventureworks_tableschema_sequence.csv
 ├── schema (Contains schema definitions and related files)
 │   └── ... (Add specific files and descriptions here)
 ├── evaluations (Contains evaluation results and scripts)
@@ -15,7 +17,9 @@ etl-llm (root directory of the repository)
 ├── metrics (Contains metrics results and scripts)
 │   └── ... (Add specific files and descriptions here)
 └── notebooks (Contains Jupyter notebooks for experimentation and analysis)
-    └── ... (Add specific files and descriptions here)
+    └── Data Processing.ipynb (Retreives the schema from adventureworks database,data amd preprocesses the data to generate the training dataset)
+    └── Bert_model_schema_training.ipynb (Bert base model trained on AdventureWorks schema)
+    └── t5_small_model.ipynb (T5 small model trained on AdventureWorks schema)
 ```
 
 
