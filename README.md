@@ -1,6 +1,14 @@
-# etl_llm_thesis
 # Optimizing ETL Pipelines through the Integration of Language Models
 Application of Large Language Models for Data Extraction, Transformation, and Loading.
+
+# Table of Contents
+
+1. [Overview](#overview)
+2. [Installation](#installation)
+3. [Data](# Training Data Preparation Flow)
+4. [Repository Structure](#Repository Structure)
+5. [How to Navigate the Repository](#how-to-navigate-the-repository)
+6. [Acknowledgements](#acknowledgements)
 
 # Repository Structure
 ```
