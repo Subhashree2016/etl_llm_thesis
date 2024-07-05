@@ -5,13 +5,16 @@ Application of Large Language Models for Data Extraction, Transformation, and Lo
 
 1. [Overview](#overview)
 2. [Repository Structure](#RepositoryStructure)
-3. [Installation](#installation)
-4. [Data](#Dataset)
-5. 
-6. [Usage Instructions](#Usage-Instructions)
+3. [Data](#Dataset)
+4. [Usage Instructions](#Usage-Instructions) 
 7. [Acknowledgements](#acknowledgements)
 
+
 # Overview
+A significant amount of time in any organization is spent in acquiring, exploration and preparation of data for analysis which is collectively representing the data engineering part of any project.
+Large Language Models (LLMs) have garnered significant attention in recent years. This project is focused on to examine if these capabilities can be used explore the potential of
+leveraging LLMs to revolutionize ETL (Extract, Transform, Load) pipelines.
+
 # Repository Structure
 ```
 etl-llm (root directory of the repository)
