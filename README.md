@@ -68,7 +68,7 @@ For data processing, a local installation of PostgreSQL is required. Follow the 
      ```
 
 4. **Connect to PostgreSQL**:
-   - Use the code from notebooks\Data Processing.ipynb to connect to your PostgreSQL database in your Python scripts:
+   - Use the code from "notebooks\Data Processing.ipynb" to connect to your PostgreSQL database in your Python scripts:
      ```python
      import psycopg2
 
