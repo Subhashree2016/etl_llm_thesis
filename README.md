@@ -109,4 +109,14 @@ For data processing, a local installation of PostgreSQL is required. Follow the 
 4. **Plotting Results**:
    - Use the `metrics.ipynb` notebook to visualize the results after training the model.
 
+# Acknowledgement
+
+This project makes use of pretrained models from Hugging Face's Transformers library (Wolf et al., 2020).  The pretrained models used:
+
+- T5 (Text-To-Text Transfer Transformer): Used for sequence-to-sequence tasks.
+- BERT (Bidirectional Encoder Representations from Transformers): Used for tasks involving natural language understanding.
+  
+These models were fine-tuned on specific datasets and downstream tasks using the transformers library.
+ ** Link to the Hugging Face Transformers GitHub repository: [Hugging Face Transformers](https://github.com/huggingface/transformers)***
+
 
