@@ -1,0 +1,1225 @@
+Table Schema,Table Name,Column Name,Data Type,Is Nullable,Constraint Type,Ordinal Position
+hr,d,id,integer,YES,,1
+hr,d,departmentid,integer,YES,,2
+hr,d,name,character varying,YES,,3
+hr,d,groupname,character varying,YES,,4
+hr,d,modifieddate,timestamp without time zone,YES,,5
+hr,e,id,integer,YES,,1
+hr,e,businessentityid,integer,YES,,2
+hr,e,nationalidnumber,character varying,YES,,3
+hr,e,loginid,character varying,YES,,4
+hr,e,jobtitle,character varying,YES,,5
+hr,e,birthdate,date,YES,,6
+hr,e,maritalstatus,character,YES,,7
+hr,e,gender,character,YES,,8
+hr,e,hiredate,date,YES,,9
+hr,e,salariedflag,boolean,NO,,10
+hr,e,vacationhours,smallint,YES,,11
+hr,e,sickleavehours,smallint,YES,,12
+hr,e,currentflag,boolean,NO,,13
+hr,e,rowguid,uuid,YES,,14
+hr,e,modifieddate,timestamp without time zone,YES,,15
+hr,e,organizationnode,character varying,YES,,16
+hr,edh,id,integer,YES,,1
+hr,edh,businessentityid,integer,YES,,2
+hr,edh,departmentid,smallint,YES,,3
+hr,edh,shiftid,smallint,YES,,4
+hr,edh,startdate,date,YES,,5
+hr,edh,enddate,date,YES,,6
+hr,edh,modifieddate,timestamp without time zone,YES,,7
+hr,eph,id,integer,YES,,1
+hr,eph,businessentityid,integer,YES,,2
+hr,eph,ratechangedate,timestamp without time zone,YES,,3
+hr,eph,rate,numeric,YES,,4
+hr,eph,payfrequency,smallint,YES,,5
+hr,eph,modifieddate,timestamp without time zone,YES,,6
+hr,jc,id,integer,YES,,1
+hr,jc,jobcandidateid,integer,YES,,2
+hr,jc,businessentityid,integer,YES,,3
+hr,jc,resume,xml,YES,,4
+hr,jc,modifieddate,timestamp without time zone,YES,,5
+hr,s,id,integer,YES,,1
+hr,s,shiftid,integer,YES,,2
+hr,s,name,character varying,YES,,3
+hr,s,starttime,time without time zone,YES,,4
+hr,s,endtime,time without time zone,YES,,5
+hr,s,modifieddate,timestamp without time zone,YES,,6
+humanresources,department,departmentid,integer,NO,PRIMARY KEY,1
+humanresources,department,name,character varying,NO,,2
+humanresources,department,groupname,character varying,NO,,3
+humanresources,department,modifieddate,timestamp without time zone,NO,,4
+humanresources,employee,businessentityid,integer,NO,PRIMARY KEY,1
+humanresources,employee,nationalidnumber,character varying,NO,,2
+humanresources,employee,loginid,character varying,NO,,3
+humanresources,employee,jobtitle,character varying,NO,,6
+humanresources,employee,birthdate,date,NO,CHECK,7
+humanresources,employee,maritalstatus,character,NO,CHECK,8
+humanresources,employee,gender,character,NO,CHECK,9
+humanresources,employee,hiredate,date,NO,CHECK,10
+humanresources,employee,salariedflag,boolean,NO,,11
+humanresources,employee,vacationhours,smallint,NO,CHECK,12
+humanresources,employee,sickleavehours,smallint,NO,CHECK,13
+humanresources,employee,currentflag,boolean,NO,,14
+humanresources,employee,rowguid,uuid,NO,,15
+humanresources,employee,modifieddate,timestamp without time zone,NO,,16
+humanresources,employee,organizationnode,character varying,YES,,17
+humanresources,employeedepartmenthistory,businessentityid,integer,NO,PRIMARY KEY,1
+humanresources,employeedepartmenthistory,departmentid,smallint,NO,PRIMARY KEY,2
+humanresources,employeedepartmenthistory,shiftid,smallint,NO,PRIMARY KEY,3
+humanresources,employeedepartmenthistory,startdate,date,NO,"CHECK, PRIMARY KEY",4
+humanresources,employeedepartmenthistory,enddate,date,YES,CHECK,5
+humanresources,employeedepartmenthistory,modifieddate,timestamp without time zone,NO,,6
+humanresources,employeepayhistory,businessentityid,integer,NO,PRIMARY KEY,1
+humanresources,employeepayhistory,ratechangedate,timestamp without time zone,NO,PRIMARY KEY,2
+humanresources,employeepayhistory,rate,numeric,NO,CHECK,3
+humanresources,employeepayhistory,payfrequency,smallint,NO,CHECK,4
+humanresources,employeepayhistory,modifieddate,timestamp without time zone,NO,,5
+humanresources,jobcandidate,jobcandidateid,integer,NO,PRIMARY KEY,1
+humanresources,jobcandidate,businessentityid,integer,YES,,2
+humanresources,jobcandidate,resume,xml,YES,,3
+humanresources,jobcandidate,modifieddate,timestamp without time zone,NO,,4
+humanresources,shift,shiftid,integer,NO,PRIMARY KEY,1
+humanresources,shift,name,character varying,NO,,2
+humanresources,shift,starttime,time without time zone,NO,,3
+humanresources,shift,endtime,time without time zone,NO,,4
+humanresources,shift,modifieddate,timestamp without time zone,NO,,5
+humanresources,vemployee,businessentityid,integer,YES,,1
+humanresources,vemployee,title,character varying,YES,,2
+humanresources,vemployee,firstname,character varying,YES,,3
+humanresources,vemployee,middlename,character varying,YES,,4
+humanresources,vemployee,lastname,character varying,YES,,5
+humanresources,vemployee,suffix,character varying,YES,,6
+humanresources,vemployee,jobtitle,character varying,YES,,7
+humanresources,vemployee,phonenumber,character varying,YES,,8
+humanresources,vemployee,phonenumbertype,character varying,YES,,9
+humanresources,vemployee,emailaddress,character varying,YES,,10
+humanresources,vemployee,emailpromotion,integer,YES,,11
+humanresources,vemployee,addressline1,character varying,YES,,12
+humanresources,vemployee,addressline2,character varying,YES,,13
+humanresources,vemployee,city,character varying,YES,,14
+humanresources,vemployee,stateprovincename,character varying,YES,,15
+humanresources,vemployee,postalcode,character varying,YES,,16
+humanresources,vemployee,countryregionname,character varying,YES,,17
+humanresources,vemployee,additionalcontactinfo,xml,YES,,18
+humanresources,vemployeedepartment,businessentityid,integer,YES,,1
+humanresources,vemployeedepartment,title,character varying,YES,,2
+humanresources,vemployeedepartment,firstname,character varying,YES,,3
+humanresources,vemployeedepartment,middlename,character varying,YES,,4
+humanresources,vemployeedepartment,lastname,character varying,YES,,5
+humanresources,vemployeedepartment,suffix,character varying,YES,,6
+humanresources,vemployeedepartment,jobtitle,character varying,YES,,7
+humanresources,vemployeedepartment,department,character varying,YES,,8
+humanresources,vemployeedepartment,groupname,character varying,YES,,9
+humanresources,vemployeedepartment,startdate,date,YES,,10
+humanresources,vemployeedepartmenthistory,businessentityid,integer,YES,,1
+humanresources,vemployeedepartmenthistory,title,character varying,YES,,2
+humanresources,vemployeedepartmenthistory,firstname,character varying,YES,,3
+humanresources,vemployeedepartmenthistory,middlename,character varying,YES,,4
+humanresources,vemployeedepartmenthistory,lastname,character varying,YES,,5
+humanresources,vemployeedepartmenthistory,suffix,character varying,YES,,6
+humanresources,vemployeedepartmenthistory,shift,character varying,YES,,7
+humanresources,vemployeedepartmenthistory,department,character varying,YES,,8
+humanresources,vemployeedepartmenthistory,groupname,character varying,YES,,9
+humanresources,vemployeedepartmenthistory,startdate,date,YES,,10
+humanresources,vemployeedepartmenthistory,enddate,date,YES,,11
+humanresources,vjobcandidate,jobcandidateid,integer,YES,,1
+humanresources,vjobcandidate,businessentityid,integer,YES,,2
+humanresources,vjobcandidate,Name.Prefix,character varying,YES,,3
+humanresources,vjobcandidate,Name.First,character varying,YES,,4
+humanresources,vjobcandidate,Name.Middle,character varying,YES,,5
+humanresources,vjobcandidate,Name.Last,character varying,YES,,6
+humanresources,vjobcandidate,Name.Suffix,character varying,YES,,7
+humanresources,vjobcandidate,Skills,character varying,YES,,8
+humanresources,vjobcandidate,Addr.Type,character varying,YES,,9
+humanresources,vjobcandidate,Addr.Loc.CountryRegion,character varying,YES,,10
+humanresources,vjobcandidate,Addr.Loc.State,character varying,YES,,11
+humanresources,vjobcandidate,Addr.Loc.City,character varying,YES,,12
+humanresources,vjobcandidate,Addr.PostalCode,character varying,YES,,13
+humanresources,vjobcandidate,EMail,character varying,YES,,14
+humanresources,vjobcandidate,WebSite,character varying,YES,,15
+humanresources,vjobcandidate,modifieddate,timestamp without time zone,YES,,16
+humanresources,vjobcandidateeducation,jobcandidateid,integer,YES,,1
+humanresources,vjobcandidateeducation,Edu.Level,character varying,YES,,2
+humanresources,vjobcandidateeducation,Edu.StartDate,date,YES,,3
+humanresources,vjobcandidateeducation,Edu.EndDate,date,YES,,4
+humanresources,vjobcandidateeducation,Edu.Degree,character varying,YES,,5
+humanresources,vjobcandidateeducation,Edu.Major,character varying,YES,,6
+humanresources,vjobcandidateeducation,Edu.Minor,character varying,YES,,7
+humanresources,vjobcandidateeducation,Edu.GPA,character varying,YES,,8
+humanresources,vjobcandidateeducation,Edu.GPAScale,character varying,YES,,9
+humanresources,vjobcandidateeducation,Edu.School,character varying,YES,,10
+humanresources,vjobcandidateeducation,Edu.Loc.CountryRegion,character varying,YES,,11
+humanresources,vjobcandidateeducation,Edu.Loc.State,character varying,YES,,12
+humanresources,vjobcandidateeducation,Edu.Loc.City,character varying,YES,,13
+humanresources,vjobcandidateemployment,jobcandidateid,integer,YES,,1
+humanresources,vjobcandidateemployment,Emp.StartDate,date,YES,,2
+humanresources,vjobcandidateemployment,Emp.EndDate,date,YES,,3
+humanresources,vjobcandidateemployment,Emp.OrgName,character varying,YES,,4
+humanresources,vjobcandidateemployment,Emp.JobTitle,character varying,YES,,5
+humanresources,vjobcandidateemployment,Emp.Responsibility,character varying,YES,,6
+humanresources,vjobcandidateemployment,Emp.FunctionCategory,character varying,YES,,7
+humanresources,vjobcandidateemployment,Emp.IndustryCategory,character varying,YES,,8
+humanresources,vjobcandidateemployment,Emp.Loc.CountryRegion,character varying,YES,,9
+humanresources,vjobcandidateemployment,Emp.Loc.State,character varying,YES,,10
+humanresources,vjobcandidateemployment,Emp.Loc.City,character varying,YES,,11
+pe,a,id,integer,YES,,1
+pe,a,addressid,integer,YES,,2
+pe,a,addressline1,character varying,YES,,3
+pe,a,addressline2,character varying,YES,,4
+pe,a,city,character varying,YES,,5
+pe,a,stateprovinceid,integer,YES,,6
+pe,a,postalcode,character varying,YES,,7
+pe,a,spatiallocation,bytea,YES,,8
+pe,a,rowguid,uuid,YES,,9
+pe,a,modifieddate,timestamp without time zone,YES,,10
+pe,at,id,integer,YES,,1
+pe,at,addresstypeid,integer,YES,,2
+pe,at,name,character varying,YES,,3
+pe,at,rowguid,uuid,YES,,4
+pe,at,modifieddate,timestamp without time zone,YES,,5
+pe,be,id,integer,YES,,1
+pe,be,businessentityid,integer,YES,,2
+pe,be,rowguid,uuid,YES,,3
+pe,be,modifieddate,timestamp without time zone,YES,,4
+pe,bea,id,integer,YES,,1
+pe,bea,businessentityid,integer,YES,,2
+pe,bea,addressid,integer,YES,,3
+pe,bea,addresstypeid,integer,YES,,4
+pe,bea,rowguid,uuid,YES,,5
+pe,bea,modifieddate,timestamp without time zone,YES,,6
+pe,bec,id,integer,YES,,1
+pe,bec,businessentityid,integer,YES,,2
+pe,bec,personid,integer,YES,,3
+pe,bec,contacttypeid,integer,YES,,4
+pe,bec,rowguid,uuid,YES,,5
+pe,bec,modifieddate,timestamp without time zone,YES,,6
+pe,cr,countryregioncode,character varying,YES,,1
+pe,cr,name,character varying,YES,,2
+pe,cr,modifieddate,timestamp without time zone,YES,,3
+pe,ct,id,integer,YES,,1
+pe,ct,contacttypeid,integer,YES,,2
+pe,ct,name,character varying,YES,,3
+pe,ct,modifieddate,timestamp without time zone,YES,,4
+pe,e,id,integer,YES,,1
+pe,e,businessentityid,integer,YES,,2
+pe,e,emailaddressid,integer,YES,,3
+pe,e,emailaddress,character varying,YES,,4
+pe,e,rowguid,uuid,YES,,5
+pe,e,modifieddate,timestamp without time zone,YES,,6
+pe,p,id,integer,YES,,1
+pe,p,businessentityid,integer,YES,,2
+pe,p,persontype,character,YES,,3
+pe,p,namestyle,boolean,NO,,4
+pe,p,title,character varying,YES,,5
+pe,p,firstname,character varying,YES,,6
+pe,p,middlename,character varying,YES,,7
+pe,p,lastname,character varying,YES,,8
+pe,p,suffix,character varying,YES,,9
+pe,p,emailpromotion,integer,YES,,10
+pe,p,additionalcontactinfo,xml,YES,,11
+pe,p,demographics,xml,YES,,12
+pe,p,rowguid,uuid,YES,,13
+pe,p,modifieddate,timestamp without time zone,YES,,14
+pe,pa,id,integer,YES,,1
+pe,pa,businessentityid,integer,YES,,2
+pe,pa,passwordhash,character varying,YES,,3
+pe,pa,passwordsalt,character varying,YES,,4
+pe,pa,rowguid,uuid,YES,,5
+pe,pa,modifieddate,timestamp without time zone,YES,,6
+pe,pnt,id,integer,YES,,1
+pe,pnt,phonenumbertypeid,integer,YES,,2
+pe,pnt,name,character varying,YES,,3
+pe,pnt,modifieddate,timestamp without time zone,YES,,4
+pe,pp,id,integer,YES,,1
+pe,pp,businessentityid,integer,YES,,2
+pe,pp,phonenumber,character varying,YES,,3
+pe,pp,phonenumbertypeid,integer,YES,,4
+pe,pp,modifieddate,timestamp without time zone,YES,,5
+pe,sp,id,integer,YES,,1
+pe,sp,stateprovinceid,integer,YES,,2
+pe,sp,stateprovincecode,character,YES,,3
+pe,sp,countryregioncode,character varying,YES,,4
+pe,sp,isonlystateprovinceflag,boolean,NO,,5
+pe,sp,name,character varying,YES,,6
+pe,sp,territoryid,integer,YES,,7
+pe,sp,rowguid,uuid,YES,,8
+pe,sp,modifieddate,timestamp without time zone,YES,,9
+person,address,addressid,integer,NO,PRIMARY KEY,1
+person,address,addressline1,character varying,NO,,2
+person,address,addressline2,character varying,YES,,3
+person,address,city,character varying,NO,,4
+person,address,stateprovinceid,integer,NO,,5
+person,address,postalcode,character varying,NO,,6
+person,address,spatiallocation,bytea,YES,,7
+person,address,rowguid,uuid,NO,,8
+person,address,modifieddate,timestamp without time zone,NO,,9
+person,addresstype,addresstypeid,integer,NO,PRIMARY KEY,1
+person,addresstype,name,character varying,NO,,2
+person,addresstype,rowguid,uuid,NO,,3
+person,addresstype,modifieddate,timestamp without time zone,NO,,4
+person,businessentity,businessentityid,integer,NO,PRIMARY KEY,1
+person,businessentity,rowguid,uuid,NO,,2
+person,businessentity,modifieddate,timestamp without time zone,NO,,3
+person,businessentityaddress,businessentityid,integer,NO,PRIMARY KEY,1
+person,businessentityaddress,addressid,integer,NO,PRIMARY KEY,2
+person,businessentityaddress,addresstypeid,integer,NO,PRIMARY KEY,3
+person,businessentityaddress,rowguid,uuid,NO,,4
+person,businessentityaddress,modifieddate,timestamp without time zone,NO,,5
+person,businessentitycontact,businessentityid,integer,NO,PRIMARY KEY,1
+person,businessentitycontact,personid,integer,NO,PRIMARY KEY,2
+person,businessentitycontact,contacttypeid,integer,NO,PRIMARY KEY,3
+person,businessentitycontact,rowguid,uuid,NO,,4
+person,businessentitycontact,modifieddate,timestamp without time zone,NO,,5
+person,contacttype,contacttypeid,integer,NO,PRIMARY KEY,1
+person,contacttype,name,character varying,NO,,2
+person,contacttype,modifieddate,timestamp without time zone,NO,,3
+person,countryregion,countryregioncode,character varying,NO,PRIMARY KEY,1
+person,countryregion,name,character varying,NO,,2
+person,countryregion,modifieddate,timestamp without time zone,NO,,3
+person,emailaddress,businessentityid,integer,NO,PRIMARY KEY,1
+person,emailaddress,emailaddressid,integer,NO,PRIMARY KEY,2
+person,emailaddress,emailaddress,character varying,YES,,3
+person,emailaddress,rowguid,uuid,NO,,4
+person,emailaddress,modifieddate,timestamp without time zone,NO,,5
+person,password,businessentityid,integer,NO,PRIMARY KEY,1
+person,password,passwordhash,character varying,NO,,2
+person,password,passwordsalt,character varying,NO,,3
+person,password,rowguid,uuid,NO,,4
+person,password,modifieddate,timestamp without time zone,NO,,5
+person,person,businessentityid,integer,NO,PRIMARY KEY,1
+person,person,persontype,character,NO,CHECK,2
+person,person,namestyle,boolean,NO,,3
+person,person,title,character varying,YES,,4
+person,person,firstname,character varying,NO,,5
+person,person,middlename,character varying,YES,,6
+person,person,lastname,character varying,NO,,7
+person,person,suffix,character varying,YES,,8
+person,person,emailpromotion,integer,NO,CHECK,9
+person,person,additionalcontactinfo,xml,YES,,10
+person,person,demographics,xml,YES,,11
+person,person,rowguid,uuid,NO,,12
+person,person,modifieddate,timestamp without time zone,NO,,13
+person,personphone,businessentityid,integer,NO,PRIMARY KEY,1
+person,personphone,phonenumber,character varying,NO,PRIMARY KEY,2
+person,personphone,phonenumbertypeid,integer,NO,PRIMARY KEY,3
+person,personphone,modifieddate,timestamp without time zone,NO,,4
+person,phonenumbertype,phonenumbertypeid,integer,NO,PRIMARY KEY,1
+person,phonenumbertype,name,character varying,NO,,2
+person,phonenumbertype,modifieddate,timestamp without time zone,NO,,3
+person,stateprovince,stateprovinceid,integer,NO,PRIMARY KEY,1
+person,stateprovince,stateprovincecode,character,NO,,2
+person,stateprovince,countryregioncode,character varying,NO,,3
+person,stateprovince,isonlystateprovinceflag,boolean,NO,,4
+person,stateprovince,name,character varying,NO,,5
+person,stateprovince,territoryid,integer,NO,,6
+person,stateprovince,rowguid,uuid,NO,,7
+person,stateprovince,modifieddate,timestamp without time zone,NO,,8
+person,vadditionalcontactinfo,businessentityid,integer,YES,,1
+person,vadditionalcontactinfo,firstname,character varying,YES,,2
+person,vadditionalcontactinfo,middlename,character varying,YES,,3
+person,vadditionalcontactinfo,lastname,character varying,YES,,4
+person,vadditionalcontactinfo,telephonenumber,xml,YES,,5
+person,vadditionalcontactinfo,telephonespecialinstructions,text,YES,,6
+person,vadditionalcontactinfo,street,xml,YES,,7
+person,vadditionalcontactinfo,city,xml,YES,,8
+person,vadditionalcontactinfo,stateprovince,xml,YES,,9
+person,vadditionalcontactinfo,postalcode,xml,YES,,10
+person,vadditionalcontactinfo,countryregion,xml,YES,,11
+person,vadditionalcontactinfo,homeaddressspecialinstructions,xml,YES,,12
+person,vadditionalcontactinfo,emailaddress,xml,YES,,13
+person,vadditionalcontactinfo,emailspecialinstructions,text,YES,,14
+person,vadditionalcontactinfo,emailtelephonenumber,xml,YES,,15
+person,vadditionalcontactinfo,rowguid,uuid,YES,,16
+person,vadditionalcontactinfo,modifieddate,timestamp without time zone,YES,,17
+pr,bom,id,integer,YES,,1
+pr,bom,billofmaterialsid,integer,YES,,2
+pr,bom,productassemblyid,integer,YES,,3
+pr,bom,componentid,integer,YES,,4
+pr,bom,startdate,timestamp without time zone,YES,,5
+pr,bom,enddate,timestamp without time zone,YES,,6
+pr,bom,unitmeasurecode,character,YES,,7
+pr,bom,bomlevel,smallint,YES,,8
+pr,bom,perassemblyqty,numeric,YES,,9
+pr,bom,modifieddate,timestamp without time zone,YES,,10
+pr,c,id,character,YES,,1
+pr,c,cultureid,character,YES,,2
+pr,c,name,character varying,YES,,3
+pr,c,modifieddate,timestamp without time zone,YES,,4
+pr,d,title,character varying,YES,,1
+pr,d,owner,integer,YES,,2
+pr,d,folderflag,boolean,NO,,3
+pr,d,filename,character varying,YES,,4
+pr,d,fileextension,character varying,YES,,5
+pr,d,revision,character,YES,,6
+pr,d,changenumber,integer,YES,,7
+pr,d,status,smallint,YES,,8
+pr,d,documentsummary,text,YES,,9
+pr,d,document,bytea,YES,,10
+pr,d,rowguid,uuid,YES,,11
+pr,d,modifieddate,timestamp without time zone,YES,,12
+pr,d,documentnode,character varying,YES,,13
+pr,i,id,integer,YES,,1
+pr,i,illustrationid,integer,YES,,2
+pr,i,diagram,xml,YES,,3
+pr,i,modifieddate,timestamp without time zone,YES,,4
+pr,l,id,integer,YES,,1
+pr,l,locationid,integer,YES,,2
+pr,l,name,character varying,YES,,3
+pr,l,costrate,numeric,YES,,4
+pr,l,availability,numeric,YES,,5
+pr,l,modifieddate,timestamp without time zone,YES,,6
+pr,p,id,integer,YES,,1
+pr,p,productid,integer,YES,,2
+pr,p,name,character varying,YES,,3
+pr,p,productnumber,character varying,YES,,4
+pr,p,makeflag,boolean,NO,,5
+pr,p,finishedgoodsflag,boolean,NO,,6
+pr,p,color,character varying,YES,,7
+pr,p,safetystocklevel,smallint,YES,,8
+pr,p,reorderpoint,smallint,YES,,9
+pr,p,standardcost,numeric,YES,,10
+pr,p,listprice,numeric,YES,,11
+pr,p,size,character varying,YES,,12
+pr,p,sizeunitmeasurecode,character,YES,,13
+pr,p,weightunitmeasurecode,character,YES,,14
+pr,p,weight,numeric,YES,,15
+pr,p,daystomanufacture,integer,YES,,16
+pr,p,productline,character,YES,,17
+pr,p,class,character,YES,,18
+pr,p,style,character,YES,,19
+pr,p,productsubcategoryid,integer,YES,,20
+pr,p,productmodelid,integer,YES,,21
+pr,p,sellstartdate,timestamp without time zone,YES,,22
+pr,p,sellenddate,timestamp without time zone,YES,,23
+pr,p,discontinueddate,timestamp without time zone,YES,,24
+pr,p,rowguid,uuid,YES,,25
+pr,p,modifieddate,timestamp without time zone,YES,,26
+pr,pc,id,integer,YES,,1
+pr,pc,productcategoryid,integer,YES,,2
+pr,pc,name,character varying,YES,,3
+pr,pc,rowguid,uuid,YES,,4
+pr,pc,modifieddate,timestamp without time zone,YES,,5
+pr,pch,id,integer,YES,,1
+pr,pch,productid,integer,YES,,2
+pr,pch,startdate,timestamp without time zone,YES,,3
+pr,pch,enddate,timestamp without time zone,YES,,4
+pr,pch,standardcost,numeric,YES,,5
+pr,pch,modifieddate,timestamp without time zone,YES,,6
+pr,pd,id,integer,YES,,1
+pr,pd,productdescriptionid,integer,YES,,2
+pr,pd,description,character varying,YES,,3
+pr,pd,rowguid,uuid,YES,,4
+pr,pd,modifieddate,timestamp without time zone,YES,,5
+pr,pdoc,id,integer,YES,,1
+pr,pdoc,productid,integer,YES,,2
+pr,pdoc,modifieddate,timestamp without time zone,YES,,3
+pr,pdoc,documentnode,character varying,YES,,4
+pr,pi,id,integer,YES,,1
+pr,pi,productid,integer,YES,,2
+pr,pi,locationid,smallint,YES,,3
+pr,pi,shelf,character varying,YES,,4
+pr,pi,bin,smallint,YES,,5
+pr,pi,quantity,smallint,YES,,6
+pr,pi,rowguid,uuid,YES,,7
+pr,pi,modifieddate,timestamp without time zone,YES,,8
+pr,plph,id,integer,YES,,1
+pr,plph,productid,integer,YES,,2
+pr,plph,startdate,timestamp without time zone,YES,,3
+pr,plph,enddate,timestamp without time zone,YES,,4
+pr,plph,listprice,numeric,YES,,5
+pr,plph,modifieddate,timestamp without time zone,YES,,6
+pr,pm,id,integer,YES,,1
+pr,pm,productmodelid,integer,YES,,2
+pr,pm,name,character varying,YES,,3
+pr,pm,catalogdescription,xml,YES,,4
+pr,pm,instructions,xml,YES,,5
+pr,pm,rowguid,uuid,YES,,6
+pr,pm,modifieddate,timestamp without time zone,YES,,7
+pr,pmi,productmodelid,integer,YES,,1
+pr,pmi,illustrationid,integer,YES,,2
+pr,pmi,modifieddate,timestamp without time zone,YES,,3
+pr,pmpdc,productmodelid,integer,YES,,1
+pr,pmpdc,productdescriptionid,integer,YES,,2
+pr,pmpdc,cultureid,character,YES,,3
+pr,pmpdc,modifieddate,timestamp without time zone,YES,,4
+pr,pp,id,integer,YES,,1
+pr,pp,productphotoid,integer,YES,,2
+pr,pp,thumbnailphoto,bytea,YES,,3
+pr,pp,thumbnailphotofilename,character varying,YES,,4
+pr,pp,largephoto,bytea,YES,,5
+pr,pp,largephotofilename,character varying,YES,,6
+pr,pp,modifieddate,timestamp without time zone,YES,,7
+pr,ppp,productid,integer,YES,,1
+pr,ppp,productphotoid,integer,YES,,2
+pr,ppp,primary,boolean,NO,,3
+pr,ppp,modifieddate,timestamp without time zone,YES,,4
+pr,pr,id,integer,YES,,1
+pr,pr,productreviewid,integer,YES,,2
+pr,pr,productid,integer,YES,,3
+pr,pr,reviewername,character varying,YES,,4
+pr,pr,reviewdate,timestamp without time zone,YES,,5
+pr,pr,emailaddress,character varying,YES,,6
+pr,pr,rating,integer,YES,,7
+pr,pr,comments,character varying,YES,,8
+pr,pr,modifieddate,timestamp without time zone,YES,,9
+pr,psc,id,integer,YES,,1
+pr,psc,productsubcategoryid,integer,YES,,2
+pr,psc,productcategoryid,integer,YES,,3
+pr,psc,name,character varying,YES,,4
+pr,psc,rowguid,uuid,YES,,5
+pr,psc,modifieddate,timestamp without time zone,YES,,6
+pr,sr,id,integer,YES,,1
+pr,sr,scrapreasonid,integer,YES,,2
+pr,sr,name,character varying,YES,,3
+pr,sr,modifieddate,timestamp without time zone,YES,,4
+pr,th,id,integer,YES,,1
+pr,th,transactionid,integer,YES,,2
+pr,th,productid,integer,YES,,3
+pr,th,referenceorderid,integer,YES,,4
+pr,th,referenceorderlineid,integer,YES,,5
+pr,th,transactiondate,timestamp without time zone,YES,,6
+pr,th,transactiontype,character,YES,,7
+pr,th,quantity,integer,YES,,8
+pr,th,actualcost,numeric,YES,,9
+pr,th,modifieddate,timestamp without time zone,YES,,10
+pr,tha,id,integer,YES,,1
+pr,tha,transactionid,integer,YES,,2
+pr,tha,productid,integer,YES,,3
+pr,tha,referenceorderid,integer,YES,,4
+pr,tha,referenceorderlineid,integer,YES,,5
+pr,tha,transactiondate,timestamp without time zone,YES,,6
+pr,tha,transactiontype,character,YES,,7
+pr,tha,quantity,integer,YES,,8
+pr,tha,actualcost,numeric,YES,,9
+pr,tha,modifieddate,timestamp without time zone,YES,,10
+pr,um,id,character,YES,,1
+pr,um,unitmeasurecode,character,YES,,2
+pr,um,name,character varying,YES,,3
+pr,um,modifieddate,timestamp without time zone,YES,,4
+pr,w,id,integer,YES,,1
+pr,w,workorderid,integer,YES,,2
+pr,w,productid,integer,YES,,3
+pr,w,orderqty,integer,YES,,4
+pr,w,scrappedqty,smallint,YES,,5
+pr,w,startdate,timestamp without time zone,YES,,6
+pr,w,enddate,timestamp without time zone,YES,,7
+pr,w,duedate,timestamp without time zone,YES,,8
+pr,w,scrapreasonid,smallint,YES,,9
+pr,w,modifieddate,timestamp without time zone,YES,,10
+pr,wr,id,integer,YES,,1
+pr,wr,workorderid,integer,YES,,2
+pr,wr,productid,integer,YES,,3
+pr,wr,operationsequence,smallint,YES,,4
+pr,wr,locationid,smallint,YES,,5
+pr,wr,scheduledstartdate,timestamp without time zone,YES,,6
+pr,wr,scheduledenddate,timestamp without time zone,YES,,7
+pr,wr,actualstartdate,timestamp without time zone,YES,,8
+pr,wr,actualenddate,timestamp without time zone,YES,,9
+pr,wr,actualresourcehrs,numeric,YES,,10
+pr,wr,plannedcost,numeric,YES,,11
+pr,wr,actualcost,numeric,YES,,12
+pr,wr,modifieddate,timestamp without time zone,YES,,13
+production,billofmaterials,billofmaterialsid,integer,NO,PRIMARY KEY,1
+production,billofmaterials,productassemblyid,integer,YES,CHECK,2
+production,billofmaterials,componentid,integer,NO,CHECK,3
+production,billofmaterials,startdate,timestamp without time zone,NO,CHECK,4
+production,billofmaterials,enddate,timestamp without time zone,YES,CHECK,5
+production,billofmaterials,unitmeasurecode,character,NO,,6
+production,billofmaterials,bomlevel,smallint,NO,CHECK,7
+production,billofmaterials,perassemblyqty,numeric,NO,CHECK,8
+production,billofmaterials,modifieddate,timestamp without time zone,NO,,9
+production,culture,cultureid,character,NO,PRIMARY KEY,1
+production,culture,name,character varying,NO,,2
+production,culture,modifieddate,timestamp without time zone,NO,,3
+production,document,title,character varying,NO,,3
+production,document,owner,integer,NO,,4
+production,document,folderflag,boolean,NO,,5
+production,document,filename,character varying,NO,,6
+production,document,fileextension,character varying,YES,,7
+production,document,revision,character,NO,,8
+production,document,changenumber,integer,NO,,9
+production,document,status,smallint,NO,CHECK,10
+production,document,documentsummary,text,YES,,11
+production,document,document,bytea,YES,,12
+production,document,rowguid,uuid,NO,UNIQUE,13
+production,document,modifieddate,timestamp without time zone,NO,,14
+production,document,documentnode,character varying,NO,PRIMARY KEY,15
+production,illustration,illustrationid,integer,NO,PRIMARY KEY,1
+production,illustration,diagram,xml,YES,,2
+production,illustration,modifieddate,timestamp without time zone,NO,,3
+production,location,locationid,integer,NO,PRIMARY KEY,1
+production,location,name,character varying,NO,,2
+production,location,costrate,numeric,NO,CHECK,3
+production,location,availability,numeric,NO,CHECK,4
+production,location,modifieddate,timestamp without time zone,NO,,5
+production,product,productid,integer,NO,PRIMARY KEY,1
+production,product,name,character varying,NO,,2
+production,product,productnumber,character varying,NO,,3
+production,product,makeflag,boolean,NO,,4
+production,product,finishedgoodsflag,boolean,NO,,5
+production,product,color,character varying,YES,,6
+production,product,safetystocklevel,smallint,NO,CHECK,7
+production,product,reorderpoint,smallint,NO,CHECK,8
+production,product,standardcost,numeric,NO,CHECK,9
+production,product,listprice,numeric,NO,CHECK,10
+production,product,size,character varying,YES,,11
+production,product,sizeunitmeasurecode,character,YES,,12
+production,product,weightunitmeasurecode,character,YES,,13
+production,product,weight,numeric,YES,CHECK,14
+production,product,daystomanufacture,integer,NO,CHECK,15
+production,product,productline,character,YES,CHECK,16
+production,product,class,character,YES,CHECK,17
+production,product,style,character,YES,CHECK,18
+production,product,productsubcategoryid,integer,YES,,19
+production,product,productmodelid,integer,YES,,20
+production,product,sellstartdate,timestamp without time zone,NO,CHECK,21
+production,product,sellenddate,timestamp without time zone,YES,CHECK,22
+production,product,discontinueddate,timestamp without time zone,YES,,23
+production,product,rowguid,uuid,NO,,24
+production,product,modifieddate,timestamp without time zone,NO,,25
+production,productcategory,productcategoryid,integer,NO,PRIMARY KEY,1
+production,productcategory,name,character varying,NO,,2
+production,productcategory,rowguid,uuid,NO,,3
+production,productcategory,modifieddate,timestamp without time zone,NO,,4
+production,productcosthistory,productid,integer,NO,PRIMARY KEY,1
+production,productcosthistory,startdate,timestamp without time zone,NO,"CHECK, PRIMARY KEY",2
+production,productcosthistory,enddate,timestamp without time zone,YES,CHECK,3
+production,productcosthistory,standardcost,numeric,NO,CHECK,4
+production,productcosthistory,modifieddate,timestamp without time zone,NO,,5
+production,productdescription,productdescriptionid,integer,NO,PRIMARY KEY,1
+production,productdescription,description,character varying,NO,,2
+production,productdescription,rowguid,uuid,NO,,3
+production,productdescription,modifieddate,timestamp without time zone,NO,,4
+production,productdocument,productid,integer,NO,PRIMARY KEY,1
+production,productdocument,modifieddate,timestamp without time zone,NO,,3
+production,productdocument,documentnode,character varying,NO,PRIMARY KEY,4
+production,productinventory,productid,integer,NO,PRIMARY KEY,1
+production,productinventory,locationid,smallint,NO,PRIMARY KEY,2
+production,productinventory,shelf,character varying,NO,,3
+production,productinventory,bin,smallint,NO,CHECK,4
+production,productinventory,quantity,smallint,NO,,5
+production,productinventory,rowguid,uuid,NO,,6
+production,productinventory,modifieddate,timestamp without time zone,NO,,7
+production,productlistpricehistory,productid,integer,NO,PRIMARY KEY,1
+production,productlistpricehistory,startdate,timestamp without time zone,NO,"CHECK, PRIMARY KEY",2
+production,productlistpricehistory,enddate,timestamp without time zone,YES,CHECK,3
+production,productlistpricehistory,listprice,numeric,NO,CHECK,4
+production,productlistpricehistory,modifieddate,timestamp without time zone,NO,,5
+production,productmodel,productmodelid,integer,NO,PRIMARY KEY,1
+production,productmodel,name,character varying,NO,,2
+production,productmodel,catalogdescription,xml,YES,,3
+production,productmodel,instructions,xml,YES,,4
+production,productmodel,rowguid,uuid,NO,,5
+production,productmodel,modifieddate,timestamp without time zone,NO,,6
+production,productmodelillustration,productmodelid,integer,NO,PRIMARY KEY,1
+production,productmodelillustration,illustrationid,integer,NO,PRIMARY KEY,2
+production,productmodelillustration,modifieddate,timestamp without time zone,NO,,3
+production,productmodelproductdescriptionculture,productmodelid,integer,NO,PRIMARY KEY,1
+production,productmodelproductdescriptionculture,productdescriptionid,integer,NO,PRIMARY KEY,2
+production,productmodelproductdescriptionculture,cultureid,character,NO,PRIMARY KEY,3
+production,productmodelproductdescriptionculture,modifieddate,timestamp without time zone,NO,,4
+production,productphoto,productphotoid,integer,NO,PRIMARY KEY,1
+production,productphoto,thumbnailphoto,bytea,YES,,2
+production,productphoto,thumbnailphotofilename,character varying,YES,,3
+production,productphoto,largephoto,bytea,YES,,4
+production,productphoto,largephotofilename,character varying,YES,,5
+production,productphoto,modifieddate,timestamp without time zone,NO,,6
+production,productproductphoto,productid,integer,NO,PRIMARY KEY,1
+production,productproductphoto,productphotoid,integer,NO,PRIMARY KEY,2
+production,productproductphoto,primary,boolean,NO,,3
+production,productproductphoto,modifieddate,timestamp without time zone,NO,,4
+production,productreview,productreviewid,integer,NO,PRIMARY KEY,1
+production,productreview,productid,integer,NO,,2
+production,productreview,reviewername,character varying,NO,,3
+production,productreview,reviewdate,timestamp without time zone,NO,,4
+production,productreview,emailaddress,character varying,NO,,5
+production,productreview,rating,integer,NO,CHECK,6
+production,productreview,comments,character varying,YES,,7
+production,productreview,modifieddate,timestamp without time zone,NO,,8
+production,productsubcategory,productsubcategoryid,integer,NO,PRIMARY KEY,1
+production,productsubcategory,productcategoryid,integer,NO,,2
+production,productsubcategory,name,character varying,NO,,3
+production,productsubcategory,rowguid,uuid,NO,,4
+production,productsubcategory,modifieddate,timestamp without time zone,NO,,5
+production,scrapreason,scrapreasonid,integer,NO,PRIMARY KEY,1
+production,scrapreason,name,character varying,NO,,2
+production,scrapreason,modifieddate,timestamp without time zone,NO,,3
+production,transactionhistory,transactionid,integer,NO,PRIMARY KEY,1
+production,transactionhistory,productid,integer,NO,,2
+production,transactionhistory,referenceorderid,integer,NO,,3
+production,transactionhistory,referenceorderlineid,integer,NO,,4
+production,transactionhistory,transactiondate,timestamp without time zone,NO,,5
+production,transactionhistory,transactiontype,character,NO,CHECK,6
+production,transactionhistory,quantity,integer,NO,,7
+production,transactionhistory,actualcost,numeric,NO,,8
+production,transactionhistory,modifieddate,timestamp without time zone,NO,,9
+production,transactionhistoryarchive,transactionid,integer,NO,PRIMARY KEY,1
+production,transactionhistoryarchive,productid,integer,NO,,2
+production,transactionhistoryarchive,referenceorderid,integer,NO,,3
+production,transactionhistoryarchive,referenceorderlineid,integer,NO,,4
+production,transactionhistoryarchive,transactiondate,timestamp without time zone,NO,,5
+production,transactionhistoryarchive,transactiontype,character,NO,CHECK,6
+production,transactionhistoryarchive,quantity,integer,NO,,7
+production,transactionhistoryarchive,actualcost,numeric,NO,,8
+production,transactionhistoryarchive,modifieddate,timestamp without time zone,NO,,9
+production,unitmeasure,unitmeasurecode,character,NO,PRIMARY KEY,1
+production,unitmeasure,name,character varying,NO,,2
+production,unitmeasure,modifieddate,timestamp without time zone,NO,,3
+production,vproductmodelcatalogdescription,productmodelid,integer,YES,,1
+production,vproductmodelcatalogdescription,name,character varying,YES,,2
+production,vproductmodelcatalogdescription,Summary,character varying,YES,,3
+production,vproductmodelcatalogdescription,manufacturer,character varying,YES,,4
+production,vproductmodelcatalogdescription,copyright,character varying,YES,,5
+production,vproductmodelcatalogdescription,producturl,character varying,YES,,6
+production,vproductmodelcatalogdescription,warrantyperiod,character varying,YES,,7
+production,vproductmodelcatalogdescription,warrantydescription,character varying,YES,,8
+production,vproductmodelcatalogdescription,noofyears,character varying,YES,,9
+production,vproductmodelcatalogdescription,maintenancedescription,character varying,YES,,10
+production,vproductmodelcatalogdescription,wheel,character varying,YES,,11
+production,vproductmodelcatalogdescription,saddle,character varying,YES,,12
+production,vproductmodelcatalogdescription,pedal,character varying,YES,,13
+production,vproductmodelcatalogdescription,bikeframe,character varying,YES,,14
+production,vproductmodelcatalogdescription,crankset,character varying,YES,,15
+production,vproductmodelcatalogdescription,pictureangle,character varying,YES,,16
+production,vproductmodelcatalogdescription,picturesize,character varying,YES,,17
+production,vproductmodelcatalogdescription,productphotoid,character varying,YES,,18
+production,vproductmodelcatalogdescription,material,character varying,YES,,19
+production,vproductmodelcatalogdescription,color,character varying,YES,,20
+production,vproductmodelcatalogdescription,productline,character varying,YES,,21
+production,vproductmodelcatalogdescription,style,character varying,YES,,22
+production,vproductmodelcatalogdescription,riderexperience,character varying,YES,,23
+production,vproductmodelcatalogdescription,rowguid,uuid,YES,,24
+production,vproductmodelcatalogdescription,modifieddate,timestamp without time zone,YES,,25
+production,vproductmodelinstructions,productmodelid,integer,YES,,1
+production,vproductmodelinstructions,name,character varying,YES,,2
+production,vproductmodelinstructions,instructions,character varying,YES,,3
+production,vproductmodelinstructions,LocationID,integer,YES,,4
+production,vproductmodelinstructions,SetupHours,numeric,YES,,5
+production,vproductmodelinstructions,MachineHours,numeric,YES,,6
+production,vproductmodelinstructions,LaborHours,numeric,YES,,7
+production,vproductmodelinstructions,LotSize,integer,YES,,8
+production,vproductmodelinstructions,Step,character varying,YES,,9
+production,vproductmodelinstructions,rowguid,uuid,YES,,10
+production,vproductmodelinstructions,modifieddate,timestamp without time zone,YES,,11
+production,workorder,workorderid,integer,NO,PRIMARY KEY,1
+production,workorder,productid,integer,NO,,2
+production,workorder,orderqty,integer,NO,CHECK,3
+production,workorder,scrappedqty,smallint,NO,CHECK,5
+production,workorder,startdate,timestamp without time zone,NO,CHECK,6
+production,workorder,enddate,timestamp without time zone,YES,CHECK,7
+production,workorder,duedate,timestamp without time zone,NO,,8
+production,workorder,scrapreasonid,smallint,YES,,9
+production,workorder,modifieddate,timestamp without time zone,NO,,10
+production,workorderrouting,workorderid,integer,NO,PRIMARY KEY,1
+production,workorderrouting,productid,integer,NO,PRIMARY KEY,2
+production,workorderrouting,operationsequence,smallint,NO,PRIMARY KEY,3
+production,workorderrouting,locationid,smallint,NO,,4
+production,workorderrouting,scheduledstartdate,timestamp without time zone,NO,CHECK,5
+production,workorderrouting,scheduledenddate,timestamp without time zone,NO,CHECK,6
+production,workorderrouting,actualstartdate,timestamp without time zone,YES,CHECK,7
+production,workorderrouting,actualenddate,timestamp without time zone,YES,CHECK,8
+production,workorderrouting,actualresourcehrs,numeric,YES,CHECK,9
+production,workorderrouting,plannedcost,numeric,NO,CHECK,10
+production,workorderrouting,actualcost,numeric,YES,CHECK,11
+production,workorderrouting,modifieddate,timestamp without time zone,NO,,12
+pu,pod,id,integer,YES,,1
+pu,pod,purchaseorderid,integer,YES,,2
+pu,pod,purchaseorderdetailid,integer,YES,,3
+pu,pod,duedate,timestamp without time zone,YES,,4
+pu,pod,orderqty,smallint,YES,,5
+pu,pod,productid,integer,YES,,6
+pu,pod,unitprice,numeric,YES,,7
+pu,pod,receivedqty,numeric,YES,,8
+pu,pod,rejectedqty,numeric,YES,,9
+pu,pod,modifieddate,timestamp without time zone,YES,,10
+pu,poh,id,integer,YES,,1
+pu,poh,purchaseorderid,integer,YES,,2
+pu,poh,revisionnumber,smallint,YES,,3
+pu,poh,status,smallint,YES,,4
+pu,poh,employeeid,integer,YES,,5
+pu,poh,vendorid,integer,YES,,6
+pu,poh,shipmethodid,integer,YES,,7
+pu,poh,orderdate,timestamp without time zone,YES,,8
+pu,poh,shipdate,timestamp without time zone,YES,,9
+pu,poh,subtotal,numeric,YES,,10
+pu,poh,taxamt,numeric,YES,,11
+pu,poh,freight,numeric,YES,,12
+pu,poh,modifieddate,timestamp without time zone,YES,,13
+pu,pv,id,integer,YES,,1
+pu,pv,productid,integer,YES,,2
+pu,pv,businessentityid,integer,YES,,3
+pu,pv,averageleadtime,integer,YES,,4
+pu,pv,standardprice,numeric,YES,,5
+pu,pv,lastreceiptcost,numeric,YES,,6
+pu,pv,lastreceiptdate,timestamp without time zone,YES,,7
+pu,pv,minorderqty,integer,YES,,8
+pu,pv,maxorderqty,integer,YES,,9
+pu,pv,onorderqty,integer,YES,,10
+pu,pv,unitmeasurecode,character,YES,,11
+pu,pv,modifieddate,timestamp without time zone,YES,,12
+pu,sm,id,integer,YES,,1
+pu,sm,shipmethodid,integer,YES,,2
+pu,sm,name,character varying,YES,,3
+pu,sm,shipbase,numeric,YES,,4
+pu,sm,shiprate,numeric,YES,,5
+pu,sm,rowguid,uuid,YES,,6
+pu,sm,modifieddate,timestamp without time zone,YES,,7
+pu,v,id,integer,YES,,1
+pu,v,businessentityid,integer,YES,,2
+pu,v,accountnumber,character varying,YES,,3
+pu,v,name,character varying,YES,,4
+pu,v,creditrating,smallint,YES,,5
+pu,v,preferredvendorstatus,boolean,NO,,6
+pu,v,activeflag,boolean,NO,,7
+pu,v,purchasingwebserviceurl,character varying,YES,,8
+pu,v,modifieddate,timestamp without time zone,YES,,9
+purchasing,productvendor,productid,integer,NO,PRIMARY KEY,1
+purchasing,productvendor,businessentityid,integer,NO,PRIMARY KEY,2
+purchasing,productvendor,averageleadtime,integer,NO,CHECK,3
+purchasing,productvendor,standardprice,numeric,NO,CHECK,4
+purchasing,productvendor,lastreceiptcost,numeric,YES,CHECK,5
+purchasing,productvendor,lastreceiptdate,timestamp without time zone,YES,,6
+purchasing,productvendor,minorderqty,integer,NO,CHECK,7
+purchasing,productvendor,maxorderqty,integer,NO,CHECK,8
+purchasing,productvendor,onorderqty,integer,YES,CHECK,9
+purchasing,productvendor,unitmeasurecode,character,NO,,10
+purchasing,productvendor,modifieddate,timestamp without time zone,NO,,11
+purchasing,purchaseorderdetail,purchaseorderid,integer,NO,PRIMARY KEY,1
+purchasing,purchaseorderdetail,purchaseorderdetailid,integer,NO,PRIMARY KEY,2
+purchasing,purchaseorderdetail,duedate,timestamp without time zone,NO,,3
+purchasing,purchaseorderdetail,orderqty,smallint,NO,CHECK,4
+purchasing,purchaseorderdetail,productid,integer,NO,,5
+purchasing,purchaseorderdetail,unitprice,numeric,NO,CHECK,6
+purchasing,purchaseorderdetail,receivedqty,numeric,NO,CHECK,8
+purchasing,purchaseorderdetail,rejectedqty,numeric,NO,CHECK,9
+purchasing,purchaseorderdetail,modifieddate,timestamp without time zone,NO,,11
+purchasing,purchaseorderheader,purchaseorderid,integer,NO,PRIMARY KEY,1
+purchasing,purchaseorderheader,revisionnumber,smallint,NO,,2
+purchasing,purchaseorderheader,status,smallint,NO,CHECK,3
+purchasing,purchaseorderheader,employeeid,integer,NO,,4
+purchasing,purchaseorderheader,vendorid,integer,NO,,5
+purchasing,purchaseorderheader,shipmethodid,integer,NO,,6
+purchasing,purchaseorderheader,orderdate,timestamp without time zone,NO,CHECK,7
+purchasing,purchaseorderheader,shipdate,timestamp without time zone,YES,CHECK,8
+purchasing,purchaseorderheader,subtotal,numeric,NO,CHECK,9
+purchasing,purchaseorderheader,taxamt,numeric,NO,CHECK,10
+purchasing,purchaseorderheader,freight,numeric,NO,CHECK,11
+purchasing,purchaseorderheader,modifieddate,timestamp without time zone,NO,,13
+purchasing,shipmethod,shipmethodid,integer,NO,PRIMARY KEY,1
+purchasing,shipmethod,name,character varying,NO,,2
+purchasing,shipmethod,shipbase,numeric,NO,CHECK,3
+purchasing,shipmethod,shiprate,numeric,NO,CHECK,4
+purchasing,shipmethod,rowguid,uuid,NO,,5
+purchasing,shipmethod,modifieddate,timestamp without time zone,NO,,6
+purchasing,vendor,businessentityid,integer,NO,PRIMARY KEY,1
+purchasing,vendor,accountnumber,character varying,NO,,2
+purchasing,vendor,name,character varying,NO,,3
+purchasing,vendor,creditrating,smallint,NO,CHECK,4
+purchasing,vendor,preferredvendorstatus,boolean,NO,,5
+purchasing,vendor,activeflag,boolean,NO,,6
+purchasing,vendor,purchasingwebserviceurl,character varying,YES,,7
+purchasing,vendor,modifieddate,timestamp without time zone,NO,,8
+purchasing,vvendorwithaddresses,businessentityid,integer,YES,,1
+purchasing,vvendorwithaddresses,name,character varying,YES,,2
+purchasing,vvendorwithaddresses,addresstype,character varying,YES,,3
+purchasing,vvendorwithaddresses,addressline1,character varying,YES,,4
+purchasing,vvendorwithaddresses,addressline2,character varying,YES,,5
+purchasing,vvendorwithaddresses,city,character varying,YES,,6
+purchasing,vvendorwithaddresses,stateprovincename,character varying,YES,,7
+purchasing,vvendorwithaddresses,postalcode,character varying,YES,,8
+purchasing,vvendorwithaddresses,countryregionname,character varying,YES,,9
+purchasing,vvendorwithcontacts,businessentityid,integer,YES,,1
+purchasing,vvendorwithcontacts,name,character varying,YES,,2
+purchasing,vvendorwithcontacts,contacttype,character varying,YES,,3
+purchasing,vvendorwithcontacts,title,character varying,YES,,4
+purchasing,vvendorwithcontacts,firstname,character varying,YES,,5
+purchasing,vvendorwithcontacts,middlename,character varying,YES,,6
+purchasing,vvendorwithcontacts,lastname,character varying,YES,,7
+purchasing,vvendorwithcontacts,suffix,character varying,YES,,8
+purchasing,vvendorwithcontacts,phonenumber,character varying,YES,,9
+purchasing,vvendorwithcontacts,phonenumbertype,character varying,YES,,10
+purchasing,vvendorwithcontacts,emailaddress,character varying,YES,,11
+purchasing,vvendorwithcontacts,emailpromotion,integer,YES,,12
+sa,c,id,integer,YES,,1
+sa,c,customerid,integer,YES,,2
+sa,c,personid,integer,YES,,3
+sa,c,storeid,integer,YES,,4
+sa,c,territoryid,integer,YES,,5
+sa,c,rowguid,uuid,YES,,6
+sa,c,modifieddate,timestamp without time zone,YES,,7
+sa,cc,id,integer,YES,,1
+sa,cc,creditcardid,integer,YES,,2
+sa,cc,cardtype,character varying,YES,,3
+sa,cc,cardnumber,character varying,YES,,4
+sa,cc,expmonth,smallint,YES,,5
+sa,cc,expyear,smallint,YES,,6
+sa,cc,modifieddate,timestamp without time zone,YES,,7
+sa,cr,currencyrateid,integer,YES,,1
+sa,cr,currencyratedate,timestamp without time zone,YES,,2
+sa,cr,fromcurrencycode,character,YES,,3
+sa,cr,tocurrencycode,character,YES,,4
+sa,cr,averagerate,numeric,YES,,5
+sa,cr,endofdayrate,numeric,YES,,6
+sa,cr,modifieddate,timestamp without time zone,YES,,7
+sa,crc,countryregioncode,character varying,YES,,1
+sa,crc,currencycode,character,YES,,2
+sa,crc,modifieddate,timestamp without time zone,YES,,3
+sa,cu,id,character,YES,,1
+sa,cu,currencycode,character,YES,,2
+sa,cu,name,character varying,YES,,3
+sa,cu,modifieddate,timestamp without time zone,YES,,4
+sa,pcc,id,integer,YES,,1
+sa,pcc,businessentityid,integer,YES,,2
+sa,pcc,creditcardid,integer,YES,,3
+sa,pcc,modifieddate,timestamp without time zone,YES,,4
+sa,s,id,integer,YES,,1
+sa,s,businessentityid,integer,YES,,2
+sa,s,name,character varying,YES,,3
+sa,s,salespersonid,integer,YES,,4
+sa,s,demographics,xml,YES,,5
+sa,s,rowguid,uuid,YES,,6
+sa,s,modifieddate,timestamp without time zone,YES,,7
+sa,sci,id,integer,YES,,1
+sa,sci,shoppingcartitemid,integer,YES,,2
+sa,sci,shoppingcartid,character varying,YES,,3
+sa,sci,quantity,integer,YES,,4
+sa,sci,productid,integer,YES,,5
+sa,sci,datecreated,timestamp without time zone,YES,,6
+sa,sci,modifieddate,timestamp without time zone,YES,,7
+sa,so,id,integer,YES,,1
+sa,so,specialofferid,integer,YES,,2
+sa,so,description,character varying,YES,,3
+sa,so,discountpct,numeric,YES,,4
+sa,so,type,character varying,YES,,5
+sa,so,category,character varying,YES,,6
+sa,so,startdate,timestamp without time zone,YES,,7
+sa,so,enddate,timestamp without time zone,YES,,8
+sa,so,minqty,integer,YES,,9
+sa,so,maxqty,integer,YES,,10
+sa,so,rowguid,uuid,YES,,11
+sa,so,modifieddate,timestamp without time zone,YES,,12
+sa,sod,id,integer,YES,,1
+sa,sod,salesorderid,integer,YES,,2
+sa,sod,salesorderdetailid,integer,YES,,3
+sa,sod,carriertrackingnumber,character varying,YES,,4
+sa,sod,orderqty,smallint,YES,,5
+sa,sod,productid,integer,YES,,6
+sa,sod,specialofferid,integer,YES,,7
+sa,sod,unitprice,numeric,YES,,8
+sa,sod,unitpricediscount,numeric,YES,,9
+sa,sod,rowguid,uuid,YES,,10
+sa,sod,modifieddate,timestamp without time zone,YES,,11
+sa,soh,id,integer,YES,,1
+sa,soh,salesorderid,integer,YES,,2
+sa,soh,revisionnumber,smallint,YES,,3
+sa,soh,orderdate,timestamp without time zone,YES,,4
+sa,soh,duedate,timestamp without time zone,YES,,5
+sa,soh,shipdate,timestamp without time zone,YES,,6
+sa,soh,status,smallint,YES,,7
+sa,soh,onlineorderflag,boolean,NO,,8
+sa,soh,purchaseordernumber,character varying,YES,,9
+sa,soh,accountnumber,character varying,YES,,10
+sa,soh,customerid,integer,YES,,11
+sa,soh,salespersonid,integer,YES,,12
+sa,soh,territoryid,integer,YES,,13
+sa,soh,billtoaddressid,integer,YES,,14
+sa,soh,shiptoaddressid,integer,YES,,15
+sa,soh,shipmethodid,integer,YES,,16
+sa,soh,creditcardid,integer,YES,,17
+sa,soh,creditcardapprovalcode,character varying,YES,,18
+sa,soh,currencyrateid,integer,YES,,19
+sa,soh,subtotal,numeric,YES,,20
+sa,soh,taxamt,numeric,YES,,21
+sa,soh,freight,numeric,YES,,22
+sa,soh,totaldue,numeric,YES,,23
+sa,soh,comment,character varying,YES,,24
+sa,soh,rowguid,uuid,YES,,25
+sa,soh,modifieddate,timestamp without time zone,YES,,26
+sa,sohsr,salesorderid,integer,YES,,1
+sa,sohsr,salesreasonid,integer,YES,,2
+sa,sohsr,modifieddate,timestamp without time zone,YES,,3
+sa,sop,id,integer,YES,,1
+sa,sop,specialofferid,integer,YES,,2
+sa,sop,productid,integer,YES,,3
+sa,sop,rowguid,uuid,YES,,4
+sa,sop,modifieddate,timestamp without time zone,YES,,5
+sa,sp,id,integer,YES,,1
+sa,sp,businessentityid,integer,YES,,2
+sa,sp,territoryid,integer,YES,,3
+sa,sp,salesquota,numeric,YES,,4
+sa,sp,bonus,numeric,YES,,5
+sa,sp,commissionpct,numeric,YES,,6
+sa,sp,salesytd,numeric,YES,,7
+sa,sp,saleslastyear,numeric,YES,,8
+sa,sp,rowguid,uuid,YES,,9
+sa,sp,modifieddate,timestamp without time zone,YES,,10
+sa,spqh,id,integer,YES,,1
+sa,spqh,businessentityid,integer,YES,,2
+sa,spqh,quotadate,timestamp without time zone,YES,,3
+sa,spqh,salesquota,numeric,YES,,4
+sa,spqh,rowguid,uuid,YES,,5
+sa,spqh,modifieddate,timestamp without time zone,YES,,6
+sa,sr,id,integer,YES,,1
+sa,sr,salesreasonid,integer,YES,,2
+sa,sr,name,character varying,YES,,3
+sa,sr,reasontype,character varying,YES,,4
+sa,sr,modifieddate,timestamp without time zone,YES,,5
+sa,st,id,integer,YES,,1
+sa,st,territoryid,integer,YES,,2
+sa,st,name,character varying,YES,,3
+sa,st,countryregioncode,character varying,YES,,4
+sa,st,group,character varying,YES,,5
+sa,st,salesytd,numeric,YES,,6
+sa,st,saleslastyear,numeric,YES,,7
+sa,st,costytd,numeric,YES,,8
+sa,st,costlastyear,numeric,YES,,9
+sa,st,rowguid,uuid,YES,,10
+sa,st,modifieddate,timestamp without time zone,YES,,11
+sa,sth,id,integer,YES,,1
+sa,sth,businessentityid,integer,YES,,2
+sa,sth,territoryid,integer,YES,,3
+sa,sth,startdate,timestamp without time zone,YES,,4
+sa,sth,enddate,timestamp without time zone,YES,,5
+sa,sth,rowguid,uuid,YES,,6
+sa,sth,modifieddate,timestamp without time zone,YES,,7
+sa,tr,id,integer,YES,,1
+sa,tr,salestaxrateid,integer,YES,,2
+sa,tr,stateprovinceid,integer,YES,,3
+sa,tr,taxtype,smallint,YES,,4
+sa,tr,taxrate,numeric,YES,,5
+sa,tr,name,character varying,YES,,6
+sa,tr,rowguid,uuid,YES,,7
+sa,tr,modifieddate,timestamp without time zone,YES,,8
+sales,countryregioncurrency,countryregioncode,character varying,NO,PRIMARY KEY,1
+sales,countryregioncurrency,currencycode,character,NO,PRIMARY KEY,2
+sales,countryregioncurrency,modifieddate,timestamp without time zone,NO,,3
+sales,creditcard,creditcardid,integer,NO,PRIMARY KEY,1
+sales,creditcard,cardtype,character varying,NO,,2
+sales,creditcard,cardnumber,character varying,NO,,3
+sales,creditcard,expmonth,smallint,NO,,4
+sales,creditcard,expyear,smallint,NO,,5
+sales,creditcard,modifieddate,timestamp without time zone,NO,,6
+sales,currency,currencycode,character,NO,PRIMARY KEY,1
+sales,currency,name,character varying,NO,,2
+sales,currency,modifieddate,timestamp without time zone,NO,,3
+sales,currencyrate,currencyrateid,integer,NO,PRIMARY KEY,1
+sales,currencyrate,currencyratedate,timestamp without time zone,NO,,2
+sales,currencyrate,fromcurrencycode,character,NO,,3
+sales,currencyrate,tocurrencycode,character,NO,,4
+sales,currencyrate,averagerate,numeric,NO,,5
+sales,currencyrate,endofdayrate,numeric,NO,,6
+sales,currencyrate,modifieddate,timestamp without time zone,NO,,7
+sales,customer,customerid,integer,NO,PRIMARY KEY,1
+sales,customer,personid,integer,YES,,2
+sales,customer,storeid,integer,YES,,3
+sales,customer,territoryid,integer,YES,,4
+sales,customer,rowguid,uuid,NO,,6
+sales,customer,modifieddate,timestamp without time zone,NO,,7
+sales,personcreditcard,businessentityid,integer,NO,PRIMARY KEY,1
+sales,personcreditcard,creditcardid,integer,NO,PRIMARY KEY,2
+sales,personcreditcard,modifieddate,timestamp without time zone,NO,,3
+sales,salesorderdetail,salesorderid,integer,NO,PRIMARY KEY,1
+sales,salesorderdetail,salesorderdetailid,integer,NO,PRIMARY KEY,2
+sales,salesorderdetail,carriertrackingnumber,character varying,YES,,3
+sales,salesorderdetail,orderqty,smallint,NO,CHECK,4
+sales,salesorderdetail,productid,integer,NO,,5
+sales,salesorderdetail,specialofferid,integer,NO,,6
+sales,salesorderdetail,unitprice,numeric,NO,CHECK,7
+sales,salesorderdetail,unitpricediscount,numeric,NO,CHECK,8
+sales,salesorderdetail,rowguid,uuid,NO,,10
+sales,salesorderdetail,modifieddate,timestamp without time zone,NO,,11
+sales,salesorderheader,salesorderid,integer,NO,PRIMARY KEY,1
+sales,salesorderheader,revisionnumber,smallint,NO,,2
+sales,salesorderheader,orderdate,timestamp without time zone,NO,CHECK,3
+sales,salesorderheader,duedate,timestamp without time zone,NO,CHECK,4
+sales,salesorderheader,shipdate,timestamp without time zone,YES,CHECK,5
+sales,salesorderheader,status,smallint,NO,CHECK,6
+sales,salesorderheader,onlineorderflag,boolean,NO,,7
+sales,salesorderheader,purchaseordernumber,character varying,YES,,9
+sales,salesorderheader,accountnumber,character varying,YES,,10
+sales,salesorderheader,customerid,integer,NO,,11
+sales,salesorderheader,salespersonid,integer,YES,,12
+sales,salesorderheader,territoryid,integer,YES,,13
+sales,salesorderheader,billtoaddressid,integer,NO,,14
+sales,salesorderheader,shiptoaddressid,integer,NO,,15
+sales,salesorderheader,shipmethodid,integer,NO,,16
+sales,salesorderheader,creditcardid,integer,YES,,17
+sales,salesorderheader,creditcardapprovalcode,character varying,YES,,18
+sales,salesorderheader,currencyrateid,integer,YES,,19
+sales,salesorderheader,subtotal,numeric,NO,CHECK,20
+sales,salesorderheader,taxamt,numeric,NO,CHECK,21
+sales,salesorderheader,freight,numeric,NO,CHECK,22
+sales,salesorderheader,totaldue,numeric,YES,,23
+sales,salesorderheader,comment,character varying,YES,,24
+sales,salesorderheader,rowguid,uuid,NO,,25
+sales,salesorderheader,modifieddate,timestamp without time zone,NO,,26
+sales,salesorderheadersalesreason,salesorderid,integer,NO,PRIMARY KEY,1
+sales,salesorderheadersalesreason,salesreasonid,integer,NO,PRIMARY KEY,2
+sales,salesorderheadersalesreason,modifieddate,timestamp without time zone,NO,,3
+sales,salesperson,businessentityid,integer,NO,PRIMARY KEY,1
+sales,salesperson,territoryid,integer,YES,,2
+sales,salesperson,salesquota,numeric,YES,CHECK,3
+sales,salesperson,bonus,numeric,NO,CHECK,4
+sales,salesperson,commissionpct,numeric,NO,CHECK,5
+sales,salesperson,salesytd,numeric,NO,CHECK,6
+sales,salesperson,saleslastyear,numeric,NO,CHECK,7
+sales,salesperson,rowguid,uuid,NO,,8
+sales,salesperson,modifieddate,timestamp without time zone,NO,,9
+sales,salespersonquotahistory,businessentityid,integer,NO,PRIMARY KEY,1
+sales,salespersonquotahistory,quotadate,timestamp without time zone,NO,PRIMARY KEY,2
+sales,salespersonquotahistory,salesquota,numeric,NO,CHECK,3
+sales,salespersonquotahistory,rowguid,uuid,NO,,4
+sales,salespersonquotahistory,modifieddate,timestamp without time zone,NO,,5
+sales,salesreason,salesreasonid,integer,NO,PRIMARY KEY,1
+sales,salesreason,name,character varying,NO,,2
+sales,salesreason,reasontype,character varying,NO,,3
+sales,salesreason,modifieddate,timestamp without time zone,NO,,4
+sales,salestaxrate,salestaxrateid,integer,NO,PRIMARY KEY,1
+sales,salestaxrate,stateprovinceid,integer,NO,,2
+sales,salestaxrate,taxtype,smallint,NO,CHECK,3
+sales,salestaxrate,taxrate,numeric,NO,,4
+sales,salestaxrate,name,character varying,NO,,5
+sales,salestaxrate,rowguid,uuid,NO,,6
+sales,salestaxrate,modifieddate,timestamp without time zone,NO,,7
+sales,salesterritory,territoryid,integer,NO,PRIMARY KEY,1
+sales,salesterritory,name,character varying,NO,,2
+sales,salesterritory,countryregioncode,character varying,NO,,3
+sales,salesterritory,group,character varying,NO,,4
+sales,salesterritory,salesytd,numeric,NO,CHECK,5
+sales,salesterritory,saleslastyear,numeric,NO,CHECK,6
+sales,salesterritory,costytd,numeric,NO,CHECK,7
+sales,salesterritory,costlastyear,numeric,NO,CHECK,8
+sales,salesterritory,rowguid,uuid,NO,,9
+sales,salesterritory,modifieddate,timestamp without time zone,NO,,10
+sales,salesterritoryhistory,businessentityid,integer,NO,PRIMARY KEY,1
+sales,salesterritoryhistory,territoryid,integer,NO,PRIMARY KEY,2
+sales,salesterritoryhistory,startdate,timestamp without time zone,NO,"CHECK, PRIMARY KEY",3
+sales,salesterritoryhistory,enddate,timestamp without time zone,YES,CHECK,4
+sales,salesterritoryhistory,rowguid,uuid,NO,,5
+sales,salesterritoryhistory,modifieddate,timestamp without time zone,NO,,6
+sales,shoppingcartitem,shoppingcartitemid,integer,NO,PRIMARY KEY,1
+sales,shoppingcartitem,shoppingcartid,character varying,NO,,2
+sales,shoppingcartitem,quantity,integer,NO,CHECK,3
+sales,shoppingcartitem,productid,integer,NO,,4
+sales,shoppingcartitem,datecreated,timestamp without time zone,NO,,5
+sales,shoppingcartitem,modifieddate,timestamp without time zone,NO,,6
+sales,specialoffer,specialofferid,integer,NO,PRIMARY KEY,1
+sales,specialoffer,description,character varying,NO,,2
+sales,specialoffer,discountpct,numeric,NO,CHECK,3
+sales,specialoffer,type,character varying,NO,,4
+sales,specialoffer,category,character varying,NO,,5
+sales,specialoffer,startdate,timestamp without time zone,NO,CHECK,6
+sales,specialoffer,enddate,timestamp without time zone,NO,CHECK,7
+sales,specialoffer,minqty,integer,NO,CHECK,8
+sales,specialoffer,maxqty,integer,YES,CHECK,9
+sales,specialoffer,rowguid,uuid,NO,,10
+sales,specialoffer,modifieddate,timestamp without time zone,NO,,11
+sales,specialofferproduct,specialofferid,integer,NO,PRIMARY KEY,1
+sales,specialofferproduct,productid,integer,NO,PRIMARY KEY,2
+sales,specialofferproduct,rowguid,uuid,NO,,3
+sales,specialofferproduct,modifieddate,timestamp without time zone,NO,,4
+sales,store,businessentityid,integer,NO,PRIMARY KEY,1
+sales,store,name,character varying,NO,,2
+sales,store,salespersonid,integer,YES,,3
+sales,store,demographics,xml,YES,,4
+sales,store,rowguid,uuid,NO,,5
+sales,store,modifieddate,timestamp without time zone,NO,,6
+sales,vindividualcustomer,businessentityid,integer,YES,,1
+sales,vindividualcustomer,title,character varying,YES,,2
+sales,vindividualcustomer,firstname,character varying,YES,,3
+sales,vindividualcustomer,middlename,character varying,YES,,4
+sales,vindividualcustomer,lastname,character varying,YES,,5
+sales,vindividualcustomer,suffix,character varying,YES,,6
+sales,vindividualcustomer,phonenumber,character varying,YES,,7
+sales,vindividualcustomer,phonenumbertype,character varying,YES,,8
+sales,vindividualcustomer,emailaddress,character varying,YES,,9
+sales,vindividualcustomer,emailpromotion,integer,YES,,10
+sales,vindividualcustomer,addresstype,character varying,YES,,11
+sales,vindividualcustomer,addressline1,character varying,YES,,12
+sales,vindividualcustomer,addressline2,character varying,YES,,13
+sales,vindividualcustomer,city,character varying,YES,,14
+sales,vindividualcustomer,stateprovincename,character varying,YES,,15
+sales,vindividualcustomer,postalcode,character varying,YES,,16
+sales,vindividualcustomer,countryregionname,character varying,YES,,17
+sales,vindividualcustomer,demographics,xml,YES,,18
+sales,vpersondemographics,businessentityid,integer,YES,,1
+sales,vpersondemographics,totalpurchaseytd,money,YES,,2
+sales,vpersondemographics,datefirstpurchase,date,YES,,3
+sales,vpersondemographics,birthdate,date,YES,,4
+sales,vpersondemographics,maritalstatus,character varying,YES,,5
+sales,vpersondemographics,yearlyincome,character varying,YES,,6
+sales,vpersondemographics,gender,character varying,YES,,7
+sales,vpersondemographics,totalchildren,integer,YES,,8
+sales,vpersondemographics,numberchildrenathome,integer,YES,,9
+sales,vpersondemographics,education,character varying,YES,,10
+sales,vpersondemographics,occupation,character varying,YES,,11
+sales,vpersondemographics,homeownerflag,boolean,YES,,12
+sales,vpersondemographics,numbercarsowned,integer,YES,,13
+sales,vsalesperson,businessentityid,integer,YES,,1
+sales,vsalesperson,title,character varying,YES,,2
+sales,vsalesperson,firstname,character varying,YES,,3
+sales,vsalesperson,middlename,character varying,YES,,4
+sales,vsalesperson,lastname,character varying,YES,,5
+sales,vsalesperson,suffix,character varying,YES,,6
+sales,vsalesperson,jobtitle,character varying,YES,,7
+sales,vsalesperson,phonenumber,character varying,YES,,8
+sales,vsalesperson,phonenumbertype,character varying,YES,,9
+sales,vsalesperson,emailaddress,character varying,YES,,10
+sales,vsalesperson,emailpromotion,integer,YES,,11
+sales,vsalesperson,addressline1,character varying,YES,,12
+sales,vsalesperson,addressline2,character varying,YES,,13
+sales,vsalesperson,city,character varying,YES,,14
+sales,vsalesperson,stateprovincename,character varying,YES,,15
+sales,vsalesperson,postalcode,character varying,YES,,16
+sales,vsalesperson,countryregionname,character varying,YES,,17
+sales,vsalesperson,territoryname,character varying,YES,,18
+sales,vsalesperson,territorygroup,character varying,YES,,19
+sales,vsalesperson,salesquota,numeric,YES,,20
+sales,vsalesperson,salesytd,numeric,YES,,21
+sales,vsalesperson,saleslastyear,numeric,YES,,22
+sales,vsalespersonsalesbyfiscalyears,SalesPersonID,integer,YES,,1
+sales,vsalespersonsalesbyfiscalyears,FullName,text,YES,,2
+sales,vsalespersonsalesbyfiscalyears,JobTitle,text,YES,,3
+sales,vsalespersonsalesbyfiscalyears,SalesTerritory,text,YES,,4
+sales,vsalespersonsalesbyfiscalyears,2012,numeric,YES,,5
+sales,vsalespersonsalesbyfiscalyears,2013,numeric,YES,,6
+sales,vsalespersonsalesbyfiscalyears,2014,numeric,YES,,7
+sales,vsalespersonsalesbyfiscalyearsdata,salespersonid,integer,YES,,1
+sales,vsalespersonsalesbyfiscalyearsdata,fullname,text,YES,,2
+sales,vsalespersonsalesbyfiscalyearsdata,jobtitle,character varying,YES,,3
+sales,vsalespersonsalesbyfiscalyearsdata,salesterritory,character varying,YES,,4
+sales,vsalespersonsalesbyfiscalyearsdata,salestotal,numeric,YES,,5
+sales,vsalespersonsalesbyfiscalyearsdata,fiscalyear,numeric,YES,,6
+sales,vstorewithaddresses,businessentityid,integer,YES,,1
+sales,vstorewithaddresses,name,character varying,YES,,2
+sales,vstorewithaddresses,addresstype,character varying,YES,,3
+sales,vstorewithaddresses,addressline1,character varying,YES,,4
+sales,vstorewithaddresses,addressline2,character varying,YES,,5
+sales,vstorewithaddresses,city,character varying,YES,,6
+sales,vstorewithaddresses,stateprovincename,character varying,YES,,7
+sales,vstorewithaddresses,postalcode,character varying,YES,,8
+sales,vstorewithaddresses,countryregionname,character varying,YES,,9
+sales,vstorewithcontacts,businessentityid,integer,YES,,1
+sales,vstorewithcontacts,name,character varying,YES,,2
+sales,vstorewithcontacts,contacttype,character varying,YES,,3
+sales,vstorewithcontacts,title,character varying,YES,,4
+sales,vstorewithcontacts,firstname,character varying,YES,,5
+sales,vstorewithcontacts,middlename,character varying,YES,,6
+sales,vstorewithcontacts,lastname,character varying,YES,,7
+sales,vstorewithcontacts,suffix,character varying,YES,,8
+sales,vstorewithcontacts,phonenumber,character varying,YES,,9
+sales,vstorewithcontacts,phonenumbertype,character varying,YES,,10
+sales,vstorewithcontacts,emailaddress,character varying,YES,,11
+sales,vstorewithcontacts,emailpromotion,integer,YES,,12
+sales,vstorewithdemographics,businessentityid,integer,YES,,1
+sales,vstorewithdemographics,name,character varying,YES,,2
+sales,vstorewithdemographics,AnnualSales,money,YES,,3
+sales,vstorewithdemographics,AnnualRevenue,money,YES,,4
+sales,vstorewithdemographics,BankName,character varying,YES,,5
+sales,vstorewithdemographics,BusinessType,character varying,YES,,6
+sales,vstorewithdemographics,YearOpened,integer,YES,,7
+sales,vstorewithdemographics,Specialty,character varying,YES,,8
+sales,vstorewithdemographics,SquareFeet,integer,YES,,9
+sales,vstorewithdemographics,Brands,character varying,YES,,10
+sales,vstorewithdemographics,Internet,character varying,YES,,11
+sales,vstorewithdemographics,NumberEmployees,integer,YES,,12
