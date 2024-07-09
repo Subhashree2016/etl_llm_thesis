@@ -3,7 +3,7 @@ pandas==1.5.3
 scikit-learn==1.1.3
 
 # Deep learning and transformers
-torch==2.0.1
+torch==2.3.0
 transformers==4.29.1
 
 # Data loading and processing
@@ -11,7 +11,7 @@ datasets==2.11.0
 accelerate==0.20.3
 
 # PostgreSQL database connection
-psycopg2==2.9.6
+psycopg2==2.9.9
 
 # Google Colab specific (if needed)
 google-colab==1.0.0
